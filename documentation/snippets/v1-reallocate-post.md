@@ -7,7 +7,7 @@ public class Main {
   public static void main(String[] args) {
     SaladCloudImdsSdk saladCloudImdsSdk = new SaladCloudImdsSdk();
 
-    ReallocateContainer reallocateContainer = ReallocateContainer.builder().reason("laborum culpa").build();
+    ReallocateContainer reallocateContainer = ReallocateContainer.builder().reason("commodo").build();
 
     saladCloudImdsSdk.metadataService.reallocateContainer(reallocateContainer);
   }
