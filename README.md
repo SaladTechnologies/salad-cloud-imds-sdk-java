@@ -1,11 +1,11 @@
-# SaladCloudImdsSdk Java SDK 0.9.0-alpha.1
+# SaladCloudImdsSdk Java SDK 0.9.0-alpha.2
 
 Welcome to the SaladCloudImdsSdk SDK documentation. This guide will help you get started with integrating and using the SaladCloudImdsSdk SDK in your project.
 
 ## Versions
 
 - API version: `0.9.0-alpha.1`
-- SDK version: `0.9.0-alpha.1`
+- SDK version: `0.9.0-alpha.2`
 
 ## About the API
 
@@ -35,15 +35,15 @@ If you use Maven, place the following within the _dependency_ tag in your `pom.x
 ```XML
 <dependency>
     <groupId>com.salad.cloud</groupId>
-    <artifactId>salad-cloud-imds-sdk</artifactId>
-    <version>0.9.0-alpha.1</version>
+    <artifactId>imds-sdk</artifactId>
+    <version>0.9.0-alpha.2</version>
 </dependency>
 ```
 
 If you use Gradle, paste the next line inside the _dependencies_ block of your `build.gradle` file:
 
 ```Gradle
-implementation group: com.salad.cloud, name: salad-cloud-imds-sdk, version: 0.9.0-alpha.1
+implementation group: com.salad.cloud, name: imds-sdk, version: 0.9.0-alpha.2
 ```
 
 If you use JAR files, package the SDK by running the following command:
