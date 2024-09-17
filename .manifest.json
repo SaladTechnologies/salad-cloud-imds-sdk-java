@@ -1,10 +1,10 @@
 {
-  "liblabVersion": "2.3.1",
-  "date": "2024-09-11T23:34:32.905Z",
+  "liblabVersion": "2.4.0",
+  "date": "2024-09-17T04:36:05.118Z",
   "config": {
     "apiId": 1126,
     "sdkName": "salad-cloud-imds-sdk",
-    "sdkVersion": "0.9.0-alpha.2",
+    "sdkVersion": "0.9.0-alpha.3",
     "liblabVersion": "2",
     "deliveryMethods": ["zip"],
     "languages": ["java"],
@@ -25,7 +25,7 @@
         "homepage": "https://github.com/saladtechnologies/salad-cloud-imds-sdk-dotnet",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.2",
+        "sdkVersion": "0.9.0-alpha.3",
         "targetBranch": "main"
       },
       "go": {
@@ -33,7 +33,7 @@
         "githubRepoName": "salad-cloud-imds-sdk-go",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.2",
+        "sdkVersion": "0.9.0-alpha.3",
         "targetBranch": "main"
       },
       "java": {
@@ -57,7 +57,7 @@
         "homepage": "https://github.com/saladtechnologies/salad-cloud-imds-sdk-java",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.2",
+        "sdkVersion": "0.9.0-alpha.3",
         "targetBranch": "main"
       },
       "python": {
@@ -100,7 +100,7 @@
         "githubRepoName": "salad-cloud-imds-sdk-python",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.2",
+        "sdkVersion": "0.9.0-alpha.3",
         "targetBranch": "main"
       },
       "typescript": {
@@ -123,7 +123,7 @@
         "homepage": "https://github.com/saladtechnologies/salad-cloud-imds-sdk-javascript",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.2",
+        "sdkVersion": "0.9.0-alpha.3",
         "targetBranch": "main"
       }
     },
@@ -155,7 +155,7 @@
     },
     "multiTenant": true,
     "hooksLocation": {
-      "bucketKey": "7096/hooks.zip",
+      "bucketKey": "7207/hooks.zip",
       "bucketName": "prod-liblab-api-stack-hooks"
     },
     "includeWatermark": false,
@@ -205,6 +205,14 @@
   },
   "files": [
     "pom.xml",
+    "src/main/java/com/salad/cloud/imdssdk/validation/Violation.java",
+    "src/main/java/com/salad/cloud/imdssdk/validation/ViolationAggregator.java",
+    "src/main/java/com/salad/cloud/imdssdk/validation/validators/AbstractValidator.java",
+    "src/main/java/com/salad/cloud/imdssdk/validation/validators/ListValidator.java",
+    "src/main/java/com/salad/cloud/imdssdk/validation/validators/NumericValidator.java",
+    "src/main/java/com/salad/cloud/imdssdk/validation/validators/StringValidator.java",
+    "src/main/java/com/salad/cloud/imdssdk/validation/validators/Validator.java",
+    "src/main/java/com/salad/cloud/imdssdk/validation/exceptions/ValidationException.java",
     "src/main/java/com/salad/cloud/imdssdk/validation/annotation/Length.java",
     "src/main/java/com/salad/cloud/imdssdk/validation/annotation/Max.java",
     "src/main/java/com/salad/cloud/imdssdk/validation/annotation/Min.java",
