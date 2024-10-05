@@ -8,6 +8,9 @@ import com.salad.cloud.imdssdk.http.util.RequestBuilder;
 import com.salad.cloud.imdssdk.models.ContainerStatus;
 import com.salad.cloud.imdssdk.models.ContainerToken;
 import com.salad.cloud.imdssdk.models.ReallocateContainer;
+import com.salad.cloud.imdssdk.validation.ViolationAggregator;
+import com.salad.cloud.imdssdk.validation.exceptions.ValidationException;
+import com.salad.cloud.imdssdk.validation.validators.modelValidators.ReallocateContainerValidator;
 import java.util.concurrent.CompletableFuture;
 import lombok.NonNull;
 import okhttp3.OkHttpClient;
@@ -29,7 +32,8 @@ public class MetadataService extends BaseService {
    * @param reallocateContainer {@link ReallocateContainer} Request Body
    * @return response of {@code Void}
    */
-  public void reallocateContainer(@NonNull ReallocateContainer reallocateContainer) throws ApiException {
+  public void reallocateContainer(@NonNull ReallocateContainer reallocateContainer)
+    throws ApiException, ValidationException {
     Request request = this.buildReallocateContainerRequest(reallocateContainer);
     this.execute(request);
   }
@@ -41,14 +45,19 @@ public class MetadataService extends BaseService {
    * @return response of {@code Void}
    */
   public CompletableFuture<Void> reallocateContainerAsync(@NonNull ReallocateContainer reallocateContainer)
-    throws ApiException {
+    throws ApiException, ValidationException {
     Request request = this.buildReallocateContainerRequest(reallocateContainer);
     CompletableFuture<Response> response = this.executeAsync(request);
 
     return response.thenApplyAsync(res -> null);
   }
 
-  private Request buildReallocateContainerRequest(@NonNull ReallocateContainer reallocateContainer) {
+  private Request buildReallocateContainerRequest(@NonNull ReallocateContainer reallocateContainer)
+    throws ValidationException {
+    new ViolationAggregator()
+      .add(new ReallocateContainerValidator("reallocateContainer").validate(reallocateContainer))
+      .validateAll();
+
     return new RequestBuilder(HttpMethod.POST, this.serverUrl, "v1/reallocate")
       .setJsonContent(reallocateContainer)
       .build();

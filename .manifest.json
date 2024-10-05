@@ -1,10 +1,10 @@
 {
-  "liblabVersion": "2.4.0",
-  "date": "2024-09-17T04:36:05.118Z",
+  "liblabVersion": "2.5.1",
+  "date": "2024-10-05T04:00:45.117Z",
   "config": {
     "apiId": 1126,
     "sdkName": "salad-cloud-imds-sdk",
-    "sdkVersion": "0.9.0-alpha.3",
+    "sdkVersion": "0.9.0-alpha.4",
     "liblabVersion": "2",
     "deliveryMethods": ["zip"],
     "languages": ["java"],
@@ -33,7 +33,7 @@
         "githubRepoName": "salad-cloud-imds-sdk-go",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.3",
+        "sdkVersion": "0.9.0-alpha.4",
         "targetBranch": "main"
       },
       "java": {
@@ -57,11 +57,11 @@
         "homepage": "https://github.com/saladtechnologies/salad-cloud-imds-sdk-java",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.3",
+        "sdkVersion": "0.9.0-alpha.4",
         "targetBranch": "main"
       },
       "python": {
-        "alwaysInitializeOptionals": true,
+        "alwaysInitializeOptionals": false,
         "classifiers": [
           "Development Status :: 3 - Alpha",
           "Intended Audience :: Developers",
@@ -100,7 +100,7 @@
         "githubRepoName": "salad-cloud-imds-sdk-python",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.3",
+        "sdkVersion": "0.9.0-alpha.4",
         "targetBranch": "main"
       },
       "typescript": {
@@ -123,8 +123,9 @@
         "homepage": "https://github.com/saladtechnologies/salad-cloud-imds-sdk-javascript",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.3",
-        "targetBranch": "main"
+        "sdkVersion": "0.9.0-alpha.4",
+        "targetBranch": "main",
+        "generateEnumAs": "enum"
       }
     },
     "publishing": {
@@ -155,7 +156,7 @@
     },
     "multiTenant": true,
     "hooksLocation": {
-      "bucketKey": "7207/hooks.zip",
+      "bucketKey": "7538/hooks.zip",
       "bucketName": "prod-liblab-api-stack-hooks"
     },
     "includeWatermark": false,
@@ -192,7 +193,7 @@
     "httpLibrary": {
       "name": "axios",
       "packages": {
-        "axios": "^1.7.4"
+        "axios": "^1.7.7"
       },
       "languages": ["typescript"]
     },
@@ -212,12 +213,8 @@
     "src/main/java/com/salad/cloud/imdssdk/validation/validators/NumericValidator.java",
     "src/main/java/com/salad/cloud/imdssdk/validation/validators/StringValidator.java",
     "src/main/java/com/salad/cloud/imdssdk/validation/validators/Validator.java",
+    "src/main/java/com/salad/cloud/imdssdk/validation/validators/modelValidators/AbstractModelValidator.java",
     "src/main/java/com/salad/cloud/imdssdk/validation/exceptions/ValidationException.java",
-    "src/main/java/com/salad/cloud/imdssdk/validation/annotation/Length.java",
-    "src/main/java/com/salad/cloud/imdssdk/validation/annotation/Max.java",
-    "src/main/java/com/salad/cloud/imdssdk/validation/annotation/Min.java",
-    "src/main/java/com/salad/cloud/imdssdk/validation/annotation/Pattern.java",
-    "src/main/java/com/salad/cloud/imdssdk/validation/annotation/Valid.java",
     "src/main/java/com/salad/cloud/imdssdk/services/BaseService.java",
     "src/main/java/com/salad/cloud/imdssdk/http/HttpMethod.java",
     "src/main/java/com/salad/cloud/imdssdk/http/ModelConverter.java",
@@ -247,9 +244,11 @@
     "src/main/java/com/salad/cloud/imdssdk/json/TypeUtils.java",
     ".devcontainer/devcontainer.json",
     "example/pom.xml",
-    "example/setup.sh",
+    "example/run.sh",
     "example/src/main/java/com/example/Main.java",
     "example/.gitignore",
+    "src/main/java/com/salad/cloud/imdssdk/validation/validators/modelValidators/ReallocateContainerValidator.java",
+    "src/main/java/com/salad/cloud/imdssdk/validation/validators/modelValidators/ContainerTokenValidator.java",
     "src/main/java/com/salad/cloud/imdssdk/models/ReallocateContainer.java",
     "src/main/java/com/salad/cloud/imdssdk/models/ContainerToken.java",
     "src/main/java/com/salad/cloud/imdssdk/services/MetadataService.java",
