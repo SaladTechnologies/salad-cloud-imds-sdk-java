@@ -1,6 +1,8 @@
 package com.salad.cloud.imdssdk.services;
 
+import com.salad.cloud.imdssdk.config.SaladCloudImdsSdkConfig;
 import com.salad.cloud.imdssdk.exceptions.ApiException;
+import com.salad.cloud.imdssdk.http.Environment;
 import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
 import okhttp3.Call;
@@ -13,15 +15,19 @@ import org.jetbrains.annotations.NotNull;
 public class BaseService {
 
   protected OkHttpClient httpClient;
-  protected String serverUrl;
+  protected SaladCloudImdsSdkConfig config;
 
-  public BaseService(OkHttpClient httpClient, String serverUrl) {
+  public BaseService(OkHttpClient httpClient, SaladCloudImdsSdkConfig config) {
     this.httpClient = httpClient;
-    this.serverUrl = serverUrl;
+    this.config = config;
   }
 
-  public void setBaseUrl(String serverUrl) {
-    this.serverUrl = serverUrl;
+  public void setBaseUrl(String baseUrl) {
+    this.config.setBaseUrl(baseUrl);
+  }
+
+  public void setEnvironment(Environment environment) {
+    this.config.setEnvironment(environment);
   }
 
   protected Response execute(Request request) throws ApiException {
@@ -40,8 +46,7 @@ public class BaseService {
 
   protected CompletableFuture<Response> executeAsync(Request request) {
     CompletableFuture<Response> future = new CompletableFuture<>();
-    this.httpClient.newCall(request)
-      .enqueue(
+    this.httpClient.newCall(request).enqueue(
         new Callback() {
           @Override
           public void onResponse(@NotNull Call call, @NotNull Response response) {

@@ -1,7 +1,6 @@
 package com.salad.cloud.imdssdk.validation;
 
 import com.salad.cloud.imdssdk.validation.exceptions.ValidationException;
-import com.salad.cloud.imdssdk.validation.validators.AbstractValidator;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
