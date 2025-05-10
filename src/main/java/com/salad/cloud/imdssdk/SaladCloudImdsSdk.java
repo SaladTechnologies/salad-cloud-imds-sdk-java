@@ -10,10 +10,12 @@ import com.salad.cloud.imdssdk.services.MetadataService;
 import java.util.concurrent.TimeUnit;
 import okhttp3.OkHttpClient;
 
-/** The SaladCloud Instance Metadata Service (IMDS). Please refer to the [SaladCloud API Documentation](https://docs.salad.com/api-reference) for more details. */
+/** The SaladCloud Instance Metadata Service (IMDS). Please refer to the [SaladCloud API Documentation](https://docs.salad.com/reference) for more details. */
 public class SaladCloudImdsSdk {
 
-  public final MetadataService metadataService;
+  public final MetadataService metadata;
+
+  private final SaladCloudImdsSdkConfig config;
 
   private final HookInterceptor hookInterceptor;
 
@@ -23,7 +25,7 @@ public class SaladCloudImdsSdk {
   }
 
   public SaladCloudImdsSdk(SaladCloudImdsSdkConfig config) {
-    final String serverUrl = config.getEnvironment().getUrl();
+    this.config = config;
 
     this.hookInterceptor = new HookInterceptor(new CustomHook());
 
@@ -34,7 +36,7 @@ public class SaladCloudImdsSdk {
       .readTimeout(config.getTimeout(), TimeUnit.MILLISECONDS)
       .build();
 
-    this.metadataService = new MetadataService(httpClient, serverUrl);
+    this.metadata = new MetadataService(httpClient, config);
   }
 
   public void setEnvironment(Environment environment) {
@@ -42,7 +44,7 @@ public class SaladCloudImdsSdk {
   }
 
   public void setBaseUrl(String baseUrl) {
-    this.metadataService.setBaseUrl(baseUrl);
+    this.config.setBaseUrl(baseUrl);
   }
 }
 // c029837e0e474b76bc487506e8799df5e3335891efe4fb02bda7a1441840310c

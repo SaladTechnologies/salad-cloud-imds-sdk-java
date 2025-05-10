@@ -1,15 +1,16 @@
-package com.example;
-
+```java
 import com.salad.cloud.imdssdk.SaladCloudImdsSdk;
-import com.salad.cloud.imdssdk.models.ContainerStatus;
+import com.salad.cloud.imdssdk.models.DeletionCost;
 
 public class Main {
 
   public static void main(String[] args) {
     SaladCloudImdsSdk saladCloudImdsSdk = new SaladCloudImdsSdk();
 
-    ContainerStatus response = saladCloudImdsSdk.metadataService.getContainerStatus();
+    DeletionCost response = saladCloudImdsSdk.metadata.getDeletionCost();
 
     System.out.println(response);
   }
 }
+
+```

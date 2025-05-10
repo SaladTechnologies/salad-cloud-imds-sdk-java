@@ -2,15 +2,87 @@
 
 A list of all methods in the `MetadataService` service. Click on the method name to view detailed information about that method.
 
-| Methods                                     | Description                                             |
-| :------------------------------------------ | :------------------------------------------------------ |
-| [reallocateContainer](#reallocatecontainer) | Reallocates the running container to another Salad Node |
-| [getContainerStatus](#getcontainerstatus)   | Gets the health statuses of the running container       |
-| [getContainerToken](#getcontainertoken)     | Gets the identity token of the running container        |
+| Methods                                     | Description                                                           |
+| :------------------------------------------ | :-------------------------------------------------------------------- |
+| [getDeletionCost](#getdeletioncost)         | Gets the deletion cost of the current container instance              |
+| [replaceDeletionCost](#replacedeletioncost) | Replaces the deletion cost of the current container instance          |
+| [reallocate](#reallocate)                   | Reallocates the current container instance to another SaladCloud node |
+| [recreate](#recreate)                       | Recreates the current container instance on the same SaladCloud node  |
+| [restart](#restart)                         | Restarts the current container instance on the same SaladCloud node   |
+| [getStatus](#getstatus)                     | Gets the health statuses of the current container instance            |
+| [getToken](#gettoken)                       | Gets the identity token of the current container instance             |
 
-## reallocateContainer
+## getDeletionCost
 
-Reallocates the running container to another Salad Node
+Gets the deletion cost of the current container instance
+
+- HTTP Method: `GET`
+- Endpoint: `/v1/deletion-cost`
+
+**Return Type**
+
+`DeletionCost`
+
+**Example Usage Code Snippet**
+
+```java
+import com.salad.cloud.imdssdk.SaladCloudImdsSdk;
+import com.salad.cloud.imdssdk.models.DeletionCost;
+
+public class Main {
+
+  public static void main(String[] args) {
+    SaladCloudImdsSdk saladCloudImdsSdk = new SaladCloudImdsSdk();
+
+    DeletionCost response = saladCloudImdsSdk.metadata.getDeletionCost();
+
+    System.out.println(response);
+  }
+}
+
+```
+
+## replaceDeletionCost
+
+Replaces the deletion cost of the current container instance
+
+- HTTP Method: `PUT`
+- Endpoint: `/v1/deletion-cost`
+
+**Parameters**
+
+| Name         | Type                                      | Required | Description  |
+| :----------- | :---------------------------------------- | :------- | :----------- |
+| deletionCost | [DeletionCost](../models/DeletionCost.md) | ✅       | Request Body |
+
+**Return Type**
+
+`DeletionCost`
+
+**Example Usage Code Snippet**
+
+```java
+import com.salad.cloud.imdssdk.SaladCloudImdsSdk;
+import com.salad.cloud.imdssdk.models.DeletionCost;
+
+public class Main {
+
+  public static void main(String[] args) {
+    SaladCloudImdsSdk saladCloudImdsSdk = new SaladCloudImdsSdk();
+
+    DeletionCost deletionCost = DeletionCost.builder().deletionCost(100L).build();
+
+    DeletionCost response = saladCloudImdsSdk.metadata.replaceDeletionCost(deletionCost);
+
+    System.out.println(response);
+  }
+}
+
+```
+
+## reallocate
+
+Reallocates the current container instance to another SaladCloud node
 
 - HTTP Method: `POST`
 - Endpoint: `/v1/reallocate`
@@ -19,50 +91,96 @@ Reallocates the running container to another Salad Node
 
 | Name                | Type                                                    | Required | Description  |
 | :------------------ | :------------------------------------------------------ | :------- | :----------- |
-| reallocateContainer | [ReallocateContainer](../models/ReallocateContainer.md) | ✅       | Request Body |
+| reallocatePrototype | [ReallocatePrototype](../models/ReallocatePrototype.md) | ✅       | Request Body |
 
 **Example Usage Code Snippet**
 
 ```java
 import com.salad.cloud.imdssdk.SaladCloudImdsSdk;
-import com.salad.cloud.imdssdk.models.ReallocateContainer;
+import com.salad.cloud.imdssdk.models.ReallocatePrototype;
 
 public class Main {
 
   public static void main(String[] args) {
     SaladCloudImdsSdk saladCloudImdsSdk = new SaladCloudImdsSdk();
 
-    ReallocateContainer reallocateContainer = ReallocateContainer.builder().reason("laborum culpa").build();
+    ReallocatePrototype reallocatePrototype = ReallocatePrototype.builder().reason("Insufficient VRAM").build();
 
-    saladCloudImdsSdk.metadataService.reallocateContainer(reallocateContainer);
+    saladCloudImdsSdk.metadata.reallocate(reallocatePrototype);
   }
 }
 
 ```
 
-## getContainerStatus
+## recreate
 
-Gets the health statuses of the running container
+Recreates the current container instance on the same SaladCloud node
+
+- HTTP Method: `POST`
+- Endpoint: `/v1/recreate`
+
+**Example Usage Code Snippet**
+
+```java
+import com.salad.cloud.imdssdk.SaladCloudImdsSdk;
+
+public class Main {
+
+  public static void main(String[] args) {
+    SaladCloudImdsSdk saladCloudImdsSdk = new SaladCloudImdsSdk();
+
+    saladCloudImdsSdk.metadata.recreate();
+  }
+}
+
+```
+
+## restart
+
+Restarts the current container instance on the same SaladCloud node
+
+- HTTP Method: `POST`
+- Endpoint: `/v1/restart`
+
+**Example Usage Code Snippet**
+
+```java
+import com.salad.cloud.imdssdk.SaladCloudImdsSdk;
+
+public class Main {
+
+  public static void main(String[] args) {
+    SaladCloudImdsSdk saladCloudImdsSdk = new SaladCloudImdsSdk();
+
+    saladCloudImdsSdk.metadata.restart();
+  }
+}
+
+```
+
+## getStatus
+
+Gets the health statuses of the current container instance
 
 - HTTP Method: `GET`
 - Endpoint: `/v1/status`
 
 **Return Type**
 
-`ContainerStatus`
+`Status`
 
 **Example Usage Code Snippet**
 
 ```java
 import com.salad.cloud.imdssdk.SaladCloudImdsSdk;
-import com.salad.cloud.imdssdk.models.ContainerStatus;
+import com.salad.cloud.imdssdk.models.Status;
 
 public class Main {
 
   public static void main(String[] args) {
     SaladCloudImdsSdk saladCloudImdsSdk = new SaladCloudImdsSdk();
 
-    ContainerStatus response = saladCloudImdsSdk.metadataService.getContainerStatus();
+    Status response = saladCloudImdsSdk.metadata.getStatus();
 
     System.out.println(response);
   }
@@ -70,29 +188,29 @@ public class Main {
 
 ```
 
-## getContainerToken
+## getToken
 
-Gets the identity token of the running container
+Gets the identity token of the current container instance
 
 - HTTP Method: `GET`
 - Endpoint: `/v1/token`
 
 **Return Type**
 
-`ContainerToken`
+`Token`
 
 **Example Usage Code Snippet**
 
 ```java
 import com.salad.cloud.imdssdk.SaladCloudImdsSdk;
-import com.salad.cloud.imdssdk.models.ContainerToken;
+import com.salad.cloud.imdssdk.models.Token;
 
 public class Main {
 
   public static void main(String[] args) {
     SaladCloudImdsSdk saladCloudImdsSdk = new SaladCloudImdsSdk();
 
-    ContainerToken response = saladCloudImdsSdk.metadataService.getContainerToken();
+    Token response = saladCloudImdsSdk.metadata.getToken();
 
     System.out.println(response);
   }

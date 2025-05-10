@@ -9,7 +9,7 @@ import lombok.With;
 import lombok.extern.jackson.Jacksonized;
 
 /**
- * Represents a request to reallocate a container.
+ * Represents a request to reallocate the current container instance to another SaladCloud node.
  */
 @Data
 @Builder
@@ -17,10 +17,10 @@ import lombok.extern.jackson.Jacksonized;
 @ToString
 @EqualsAndHashCode
 @Jacksonized
-public class ReallocateContainer {
+public class ReallocatePrototype {
 
   /**
-   * The reason for reallocating the container. This value is reported to SaladCloud support for quality assurance of Salad Nodes.
+   * The reason for reallocating the current container instance. This value is reported to SaladCloud support for quality assurance purposes of SaladCloud nodes.
    */
   @NonNull
   private String reason;
