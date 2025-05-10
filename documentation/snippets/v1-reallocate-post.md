@@ -1,15 +1,15 @@
 ```java
 import com.salad.cloud.imdssdk.SaladCloudImdsSdk;
-import com.salad.cloud.imdssdk.models.ReallocateContainer;
+import com.salad.cloud.imdssdk.models.ReallocatePrototype;
 
 public class Main {
 
   public static void main(String[] args) {
     SaladCloudImdsSdk saladCloudImdsSdk = new SaladCloudImdsSdk();
 
-    ReallocateContainer reallocateContainer = ReallocateContainer.builder().reason("laborum culpa").build();
+    ReallocatePrototype reallocatePrototype = ReallocatePrototype.builder().reason("Insufficient VRAM").build();
 
-    saladCloudImdsSdk.metadataService.reallocateContainer(reallocateContainer);
+    saladCloudImdsSdk.metadata.reallocate(reallocatePrototype);
   }
 }
 
