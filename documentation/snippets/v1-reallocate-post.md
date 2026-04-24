@@ -1,5 +1,7 @@
 ```java
 import com.salad.cloud.imdssdk.SaladCloudImdsSdk;
+import com.salad.cloud.imdssdk.models.Metadata;
+import com.salad.cloud.imdssdk.models.ReallocateParameters;
 import com.salad.cloud.imdssdk.models.ReallocatePrototype;
 
 public class Main {
@@ -9,7 +11,12 @@ public class Main {
 
     ReallocatePrototype reallocatePrototype = ReallocatePrototype.builder().reason("Insufficient VRAM").build();
 
-    saladCloudImdsSdk.metadata.reallocate(reallocatePrototype);
+    ReallocateParameters requestParameters = ReallocateParameters.builder()
+      .metadata(Metadata.TRUE)
+      .reallocatePrototype(reallocatePrototype)
+      .build();
+
+    saladCloudImdsSdk.metadata.reallocate(requestParameters);
   }
 }
 

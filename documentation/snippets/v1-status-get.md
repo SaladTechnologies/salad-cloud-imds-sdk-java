@@ -1,5 +1,7 @@
 ```java
 import com.salad.cloud.imdssdk.SaladCloudImdsSdk;
+import com.salad.cloud.imdssdk.models.GetStatusParameters;
+import com.salad.cloud.imdssdk.models.Metadata;
 import com.salad.cloud.imdssdk.models.Status;
 
 public class Main {
@@ -7,7 +9,9 @@ public class Main {
   public static void main(String[] args) {
     SaladCloudImdsSdk saladCloudImdsSdk = new SaladCloudImdsSdk();
 
-    Status response = saladCloudImdsSdk.metadata.getStatus();
+    GetStatusParameters requestParameters = GetStatusParameters.builder().metadata(Metadata.TRUE).build();
+
+    Status response = saladCloudImdsSdk.metadata.getStatus(requestParameters);
 
     System.out.println(response);
   }
