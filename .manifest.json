@@ -1,32 +1,23 @@
 {
-  "liblabVersion": "2.25.14",
-  "date": "2025-05-10T17:36:51.875Z",
+  "liblabVersion": "2.25.53",
+  "date": "2026-04-24T01:02:02.043Z",
   "config": {
-    "apiId": 2161,
+    "apiId": 3120,
     "sdkName": "salad-cloud-imds-sdk",
-    "sdkVersion": "0.9.0-alpha.5",
+    "sdkVersion": "0.9.0-alpha.6",
     "languages": ["java"],
-    "auth": ["bearer"],
-    "docs": ["enhancedApiSpec", "snippets"],
+    "auth": [],
+    "docs": ["snippets", "enhancedApiSpec"],
     "liblabVersion": "2",
     "deliveryMethods": ["zip"],
     "rawConfig": {
       "sdkName": "salad-cloud-imds-sdk",
+      "apiName": "SaladCloud IMDS",
+      "apiVersion": "0.9.0-alpha.3",
       "specFilePath": "spec.yaml",
       "languages": ["csharp", "go", "java", "python", "typescript"],
-      "docs": ["enhancedApiSpec"],
+      "docs": ["snippets", "enhancedApiSpec"],
       "customizations": {
-        "documentation": {
-          "enhancedApiSpec": {
-            "customOutputName": "salad-cloud-imds.yaml",
-            "provider": "mintlify",
-            "githubRepoName": "salad-cloud-docs",
-            "targetBranch": "main",
-            "mintlify": {
-              "codeSamplesLanguages": ["python", "typescript", "go", "csharp"]
-            }
-          }
-        },
         "license": {
           "type": "MIT"
         },
@@ -35,7 +26,8 @@
           "maxAttempts": 3,
           "retryDelay": 150
         },
-        "devContainer": true
+        "devContainer": true,
+        "buildAllModels": true
       },
       "languageOptions": {
         "csharp": {
@@ -43,7 +35,7 @@
           "githubRepoName": "salad-cloud-imds-sdk-dotnet",
           "targetBranch": "main",
           "ignoreFiles": [".gitignore", "./LICENSE"],
-          "sdkVersion": "0.9.0-alpha.4",
+          "sdkVersion": "0.9.0-alpha.6",
           "authors": [
             {
               "name": "salad"
@@ -60,7 +52,7 @@
           "githubRepoName": "salad-cloud-imds-sdk-go",
           "targetBranch": "main",
           "ignoreFiles": [".gitignore", "./LICENSE"],
-          "sdkVersion": "0.9.0-alpha.5",
+          "sdkVersion": "0.9.0-alpha.6",
           "goModuleName": "github.com/saladtechnologies/salad-cloud-imds-sdk-go"
         },
         "java": {
@@ -68,7 +60,7 @@
           "githubRepoName": "salad-cloud-imds-sdk-java",
           "targetBranch": "main",
           "ignoreFiles": [".gitignore", "./LICENSE"],
-          "sdkVersion": "0.9.0-alpha.5",
+          "sdkVersion": "0.9.0-alpha.6",
           "homepage": "https://github.com/saladtechnologies/salad-cloud-imds-sdk-java",
           "groupId": "com.salad.cloud",
           "artifactId": "imds-sdk",
@@ -92,7 +84,7 @@
           "githubRepoName": "salad-cloud-imds-sdk-python",
           "targetBranch": "main",
           "ignoreFiles": [".gitignore", "./LICENSE"],
-          "sdkVersion": "0.9.0-alpha.5",
+          "sdkVersion": "0.9.0a6",
           "authors": [
             {
               "name": "SaladCloud Developers",
@@ -135,7 +127,7 @@
           "githubRepoName": "salad-cloud-imds-sdk-javascript",
           "targetBranch": "main",
           "ignoreFiles": [".gitignore", "./LICENSE"],
-          "sdkVersion": "0.9.0-alpha.5",
+          "sdkVersion": "0.9.0-alpha.6",
           "authors": [
             {
               "name": "SaladCloud Developers",
@@ -156,12 +148,26 @@
       },
       "publishing": {
         "githubOrg": "SaladTechnologies"
+      },
+      "integrations": {
+        "enhancedApiSpec": {
+          "customOutputName": "salad-cloud-imds.yaml",
+          "provider": "mintlify",
+          "githubRepoName": "salad-cloud-docs",
+          "targetBranch": "main",
+          "mintlify": {
+            "codeSamplesLanguages": ["python", "typescript", "go", "csharp"]
+          }
+        }
       }
     },
+    "liblabConfigVersion": "1.0.0",
+    "apiVersion": "0.9.0-alpha.3",
+    "apiName": "SaladCloud IMDS",
     "specFilePath": "spec.yaml",
+    "createDocs": false,
     "languageOptions": {
       "csharp": {
-        "packageId": "Salad.Cloud.IMDS.SDK",
         "authors": [
           {
             "name": "salad"
@@ -174,18 +180,30 @@
         "homepage": "https://github.com/saladtechnologies/salad-cloud-imds-sdk-dotnet",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.4",
-        "targetBranch": "main"
+        "renameIllegalModelProperties": true,
+        "sdkVersion": "0.9.0-alpha.6",
+        "targetBranch": "main",
+        "packageId": "Salad.Cloud.IMDS.SDK",
+        "useOptionalWrapper": false,
+        "validateResponses": false
       },
       "go": {
-        "goModuleName": "github.com/saladtechnologies/salad-cloud-imds-sdk-go",
         "githubRepoName": "salad-cloud-imds-sdk-go",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.5",
-        "targetBranch": "main"
+        "renameIllegalModelProperties": true,
+        "sdkVersion": "0.9.0-alpha.6",
+        "targetBranch": "main",
+        "goModuleName": "github.com/saladtechnologies/salad-cloud-imds-sdk-go"
       },
       "java": {
+        "githubRepoName": "salad-cloud-imds-sdk-java",
+        "homepage": "https://github.com/saladtechnologies/salad-cloud-imds-sdk-java",
+        "ignoreFiles": [".gitignore", "./LICENSE"],
+        "liblabVersion": "2",
+        "renameIllegalModelProperties": true,
+        "sdkVersion": "0.9.0-alpha.6",
+        "targetBranch": "main",
         "groupId": "com.salad.cloud",
         "artifactId": "imds-sdk",
         "includeKotlinSnippets": false,
@@ -202,15 +220,25 @@
             "organization": "Salad Technologies",
             "organizationUrl": "https://salad.com"
           }
-        ],
-        "githubRepoName": "salad-cloud-imds-sdk-java",
-        "homepage": "https://github.com/saladtechnologies/salad-cloud-imds-sdk-java",
-        "ignoreFiles": [".gitignore", "./LICENSE"],
-        "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.5",
-        "targetBranch": "main"
+        ]
       },
       "python": {
+        "authors": [
+          {
+            "email": "dev@salad.com",
+            "name": "SaladCloud Developers"
+          },
+          {
+            "email": "kyle@salad.com",
+            "name": "Kyle Dodson"
+          }
+        ],
+        "githubRepoName": "salad-cloud-imds-sdk-python",
+        "ignoreFiles": [".gitignore", "./LICENSE"],
+        "liblabVersion": "2",
+        "renameIllegalModelProperties": true,
+        "sdkVersion": "0.9.0a6",
+        "targetBranch": "main",
         "alwaysInitializeOptionals": false,
         "classifiers": [
           "Development Status :: 3 - Alpha",
@@ -236,29 +264,9 @@
           "Repository": "https://github.com/SaladTechnologies/salad-cloud-imds-sdk-python.git",
           "Issues": "https://github.com/SaladTechnologies/salad-cloud-imds-sdk-python/issues"
         },
-        "pypiPackageName": "salad-cloud-imds-sdk",
-        "authors": [
-          {
-            "email": "dev@salad.com",
-            "name": "SaladCloud Developers"
-          },
-          {
-            "email": "kyle@salad.com",
-            "name": "Kyle Dodson"
-          }
-        ],
-        "githubRepoName": "salad-cloud-imds-sdk-python",
-        "ignoreFiles": [".gitignore", "./LICENSE"],
-        "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.5",
-        "targetBranch": "main"
+        "pypiPackageName": "salad-cloud-imds-sdk"
       },
       "typescript": {
-        "bundle": true,
-        "exportClassDefault": false,
-        "httpClient": "fetch",
-        "npmName": "salad-cloud-imds-sdk",
-        "npmOrg": "saladtechnologies-oss",
         "authors": [
           {
             "email": "dev@salad.com",
@@ -273,26 +281,41 @@
         "homepage": "https://github.com/saladtechnologies/salad-cloud-imds-sdk-javascript",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.5",
+        "renameIllegalModelProperties": true,
+        "sdkVersion": "0.9.0-alpha.6",
         "targetBranch": "main",
-        "generateEnumAs": "enum"
+        "bundle": true,
+        "denoteCommon": false,
+        "exportClassDefault": false,
+        "generateEnumAs": "enum",
+        "httpClient": "fetch",
+        "npmName": "salad-cloud-imds-sdk",
+        "npmOrg": "saladtechnologies-oss"
       }
     },
-    "mcpServer": false,
+    "validationsToIgnore": [],
     "publishing": {
-      "githubOrg": "SaladTechnologies"
+      "githubOrg": "SaladTechnologies",
+      "platform": "github"
     },
-    "apiName": "SaladCloud IMDS",
-    "apiVersion": "0.9.0-alpha.2",
-    "documentation": {
+    "integrations": {
       "enhancedApiSpec": {
-        "customOutputName": "salad-cloud-imds.yaml"
+        "githubRepoName": "salad-cloud-docs",
+        "targetBranch": "main",
+        "customOutputName": "salad-cloud-imds.yaml",
+        "provider": "mintlify",
+        "mintlify": {
+          "codeSamplesLanguages": ["python", "typescript", "go", "csharp"]
+        }
       }
+    },
+    "analytics": {
+      "streaming": false,
+      "pagination": false
     },
     "devContainer": true,
     "generateEnv": true,
     "includeOptionalSnippetParameters": true,
-    "inferServiceNames": false,
     "license": {
       "type": "MIT",
       "name": "MIT",
@@ -300,6 +323,7 @@
       "path": "MIT.ejs"
     },
     "responseHeaders": false,
+    "buildAllModels": true,
     "retry": {
       "enabled": true,
       "maxAttempts": 3,
@@ -311,11 +335,12 @@
       "httpMethodsToRetry": ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD", "OPTIONS"]
     },
     "multiTenant": true,
-    "hooksLocation": {
-      "bucketKey": "11029/hooks.zip",
-      "bucketName": "prod-liblab-api-stack-hooks"
-    },
     "includeWatermark": false,
+    "githubRepoName": "salad-cloud-imds-sdk-java",
+    "homepage": "https://github.com/saladtechnologies/salad-cloud-imds-sdk-java",
+    "ignoreFiles": [".gitignore", "./LICENSE"],
+    "renameIllegalModelProperties": true,
+    "targetBranch": "main",
     "groupId": "com.salad.cloud",
     "artifactId": "imds-sdk",
     "includeKotlinSnippets": false,
@@ -333,24 +358,21 @@
         "organizationUrl": "https://salad.com"
       }
     ],
-    "githubRepoName": "salad-cloud-imds-sdk-java",
-    "homepage": "https://github.com/saladtechnologies/salad-cloud-imds-sdk-java",
-    "ignoreFiles": [".gitignore", "./LICENSE"],
-    "targetBranch": "main",
     "language": "java",
     "deliveryMethod": "zip",
     "hooks": {
-      "enabled": true,
-      "sourceDir": "/tmp/resources/hooks"
+      "enabled": false,
+      "sourceDir": ""
     },
     "usesFormData": false,
     "authentication": {},
     "environmentVariables": [],
     "fileOutput": "/tmp",
+    "inferServiceNames": false,
     "httpLibrary": {
       "name": "axios",
       "packages": {
-        "axios": "^1.7.9"
+        "axios": "^1.13.2"
       },
       "languages": ["typescript"]
     },
@@ -360,7 +382,13 @@
       "queriesData": []
     },
     "ai": false,
-    "specType": "openapi"
+    "specType": "openapi",
+    "deprecatedOperations": {
+      "include": true
+    },
+    "multipleResponses": {
+      "enabled": false
+    }
   },
   "files": [
     "pom.xml",
@@ -376,6 +404,7 @@
     "src/main/java/com/salad/cloud/imdssdk/services/BaseService.java",
     "src/main/java/com/salad/cloud/imdssdk/http/HttpMethod.java",
     "src/main/java/com/salad/cloud/imdssdk/http/ModelConverter.java",
+    "src/main/java/com/salad/cloud/imdssdk/http/util/ContentTypes.java",
     "src/main/java/com/salad/cloud/imdssdk/http/util/HttpArgumentConverter.java",
     "src/main/java/com/salad/cloud/imdssdk/http/serialization/PathSerializationStyle.java",
     "src/main/java/com/salad/cloud/imdssdk/http/serialization/QuerySerializationStyle.java",
@@ -384,13 +413,12 @@
     "src/main/java/com/salad/cloud/imdssdk/http/serialization/Util.java",
     "src/main/java/com/salad/cloud/imdssdk/http/interceptors/DefaultHeadersInterceptor.java",
     "src/main/java/com/salad/cloud/imdssdk/hook/Hook.java",
-    "src/main/java/com/salad/cloud/imdssdk/exceptions/ApiException.java",
+    "src/main/java/com/salad/cloud/imdssdk/exceptions/ApiError.java",
+    "src/main/java/com/salad/cloud/imdssdk/exceptions/SaladCloudImdsErrorException.java",
     "src/main/java/com/salad/cloud/imdssdk/http/Environment.java",
     "src/main/java/com/salad/cloud/imdssdk/SaladCloudImdsSdk.java",
-    "src/main/java/com/salad/cloud/imdssdk/hook/CustomHook.java",
     "src/main/java/com/salad/cloud/imdssdk/http/interceptors/RetryInterceptor.java",
     "src/main/java/com/salad/cloud/imdssdk/config/RetryConfig.java",
-    "src/main/java/com/salad/cloud/imdssdk/http/interceptors/HookInterceptor.java",
     "src/main/java/com/salad/cloud/imdssdk/config/SaladCloudImdsSdkConfig.java",
     "documentation/snippets/v1-deletion-cost-get.md",
     "documentation/snippets/v1-deletion-cost-put.md",
@@ -400,9 +428,18 @@
     "documentation/snippets/v1-status-get.md",
     "documentation/snippets/v1-token-get.md",
     "documentation/models/DeletionCost.md",
+    "documentation/models/Metadata.md",
+    "documentation/models/GetDeletionCostParameters.md",
+    "documentation/models/ReplaceDeletionCostParameters.md",
     "documentation/models/ReallocatePrototype.md",
+    "documentation/models/ReallocateParameters.md",
+    "documentation/models/RecreateParameters.md",
+    "documentation/models/RestartParameters.md",
     "documentation/models/Status.md",
+    "documentation/models/GetStatusParameters.md",
     "documentation/models/Token.md",
+    "documentation/models/GetTokenParameters.md",
+    "documentation/models/SaladCloudImdsError.md",
     "src/main/java/com/salad/cloud/imdssdk/json/TypeUtils.java",
     ".devcontainer/devcontainer.json",
     "examples/pom.xml",
@@ -410,8 +447,11 @@
     "examples/src/main/java/com/example/Main.java",
     "examples/.gitignore",
     "src/main/java/com/salad/cloud/imdssdk/validation/validators/modelValidators/DeletionCostValidator.java",
+    "src/main/java/com/salad/cloud/imdssdk/validation/validators/modelValidators/ReplaceDeletionCostParametersValidator.java",
     "src/main/java/com/salad/cloud/imdssdk/validation/validators/modelValidators/ReallocatePrototypeValidator.java",
+    "src/main/java/com/salad/cloud/imdssdk/validation/validators/modelValidators/ReallocateParametersValidator.java",
     "src/main/java/com/salad/cloud/imdssdk/validation/validators/modelValidators/TokenValidator.java",
+    "src/main/java/com/salad/cloud/imdssdk/validation/validators/modelValidators/SaladCloudImdsErrorValidator.java",
     ".idea/workspace.xml",
     ".idea/misc.xml",
     ".idea/compiler.xml",
@@ -419,11 +459,21 @@
     ".idea/jarRepositories.xml",
     "src/main/java/com/salad/cloud/imdssdk/http/util/RequestBuilder.java",
     "examples/README.md",
+    ".env.example",
+    "src/main/java/com/salad/cloud/imdssdk/models/Metadata.java",
     "src/main/java/com/salad/cloud/imdssdk/models/DeletionCost.java",
+    "src/main/java/com/salad/cloud/imdssdk/models/GetDeletionCostParameters.java",
     "src/main/java/com/salad/cloud/imdssdk/models/ReallocatePrototype.java",
+    "src/main/java/com/salad/cloud/imdssdk/models/RecreateParameters.java",
+    "src/main/java/com/salad/cloud/imdssdk/models/RestartParameters.java",
+    "src/main/java/com/salad/cloud/imdssdk/models/GetStatusParameters.java",
     "src/main/java/com/salad/cloud/imdssdk/models/Token.java",
+    "src/main/java/com/salad/cloud/imdssdk/models/GetTokenParameters.java",
+    "src/main/java/com/salad/cloud/imdssdk/models/ReplaceDeletionCostParameters.java",
+    "src/main/java/com/salad/cloud/imdssdk/models/ReallocateParameters.java",
     "src/main/java/com/salad/cloud/imdssdk/models/Status.java",
     "documentation/services/MetadataService.md",
+    "src/main/java/com/salad/cloud/imdssdk/models/SaladCloudImdsError.java",
     "README.md",
     "src/main/java/com/salad/cloud/imdssdk/services/MetadataService.java"
   ]

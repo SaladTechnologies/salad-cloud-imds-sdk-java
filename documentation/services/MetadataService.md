@@ -19,6 +19,12 @@ Gets the deletion cost of the current container instance
 - HTTP Method: `GET`
 - Endpoint: `/v1/deletion-cost`
 
+**Parameters**
+
+| Name              | Type                                                                | Required | Description               |
+| :---------------- | :------------------------------------------------------------------ | :------- | :------------------------ |
+| requestParameters | [GetDeletionCostParameters](../models/GetDeletionCostParameters.md) | ✅       | Request Parameters Object |
+
 **Return Type**
 
 `DeletionCost`
@@ -28,13 +34,17 @@ Gets the deletion cost of the current container instance
 ```java
 import com.salad.cloud.imdssdk.SaladCloudImdsSdk;
 import com.salad.cloud.imdssdk.models.DeletionCost;
+import com.salad.cloud.imdssdk.models.GetDeletionCostParameters;
+import com.salad.cloud.imdssdk.models.Metadata;
 
 public class Main {
 
   public static void main(String[] args) {
     SaladCloudImdsSdk saladCloudImdsSdk = new SaladCloudImdsSdk();
 
-    DeletionCost response = saladCloudImdsSdk.metadata.getDeletionCost();
+    GetDeletionCostParameters requestParameters = GetDeletionCostParameters.builder().metadata(Metadata.TRUE).build();
+
+    DeletionCost response = saladCloudImdsSdk.metadata.getDeletionCost(requestParameters);
 
     System.out.println(response);
   }
@@ -51,19 +61,17 @@ Replaces the deletion cost of the current container instance
 
 **Parameters**
 
-| Name         | Type                                      | Required | Description  |
-| :----------- | :---------------------------------------- | :------- | :----------- |
-| deletionCost | [DeletionCost](../models/DeletionCost.md) | ✅       | Request Body |
-
-**Return Type**
-
-`DeletionCost`
+| Name              | Type                                                                        | Required | Description               |
+| :---------------- | :-------------------------------------------------------------------------- | :------- | :------------------------ |
+| requestParameters | [ReplaceDeletionCostParameters](../models/ReplaceDeletionCostParameters.md) | ✅       | Request Parameters Object |
 
 **Example Usage Code Snippet**
 
 ```java
 import com.salad.cloud.imdssdk.SaladCloudImdsSdk;
 import com.salad.cloud.imdssdk.models.DeletionCost;
+import com.salad.cloud.imdssdk.models.Metadata;
+import com.salad.cloud.imdssdk.models.ReplaceDeletionCostParameters;
 
 public class Main {
 
@@ -72,9 +80,12 @@ public class Main {
 
     DeletionCost deletionCost = DeletionCost.builder().deletionCost(100L).build();
 
-    DeletionCost response = saladCloudImdsSdk.metadata.replaceDeletionCost(deletionCost);
+    ReplaceDeletionCostParameters requestParameters = ReplaceDeletionCostParameters.builder()
+      .metadata(Metadata.TRUE)
+      .deletionCost(deletionCost)
+      .build();
 
-    System.out.println(response);
+    saladCloudImdsSdk.metadata.replaceDeletionCost(requestParameters);
   }
 }
 
@@ -89,14 +100,16 @@ Reallocates the current container instance to another SaladCloud node
 
 **Parameters**
 
-| Name                | Type                                                    | Required | Description  |
-| :------------------ | :------------------------------------------------------ | :------- | :----------- |
-| reallocatePrototype | [ReallocatePrototype](../models/ReallocatePrototype.md) | ✅       | Request Body |
+| Name              | Type                                                      | Required | Description               |
+| :---------------- | :-------------------------------------------------------- | :------- | :------------------------ |
+| requestParameters | [ReallocateParameters](../models/ReallocateParameters.md) | ✅       | Request Parameters Object |
 
 **Example Usage Code Snippet**
 
 ```java
 import com.salad.cloud.imdssdk.SaladCloudImdsSdk;
+import com.salad.cloud.imdssdk.models.Metadata;
+import com.salad.cloud.imdssdk.models.ReallocateParameters;
 import com.salad.cloud.imdssdk.models.ReallocatePrototype;
 
 public class Main {
@@ -106,7 +119,12 @@ public class Main {
 
     ReallocatePrototype reallocatePrototype = ReallocatePrototype.builder().reason("Insufficient VRAM").build();
 
-    saladCloudImdsSdk.metadata.reallocate(reallocatePrototype);
+    ReallocateParameters requestParameters = ReallocateParameters.builder()
+      .metadata(Metadata.TRUE)
+      .reallocatePrototype(reallocatePrototype)
+      .build();
+
+    saladCloudImdsSdk.metadata.reallocate(requestParameters);
   }
 }
 
@@ -119,17 +137,27 @@ Recreates the current container instance on the same SaladCloud node
 - HTTP Method: `POST`
 - Endpoint: `/v1/recreate`
 
+**Parameters**
+
+| Name              | Type                                                  | Required | Description               |
+| :---------------- | :---------------------------------------------------- | :------- | :------------------------ |
+| requestParameters | [RecreateParameters](../models/RecreateParameters.md) | ✅       | Request Parameters Object |
+
 **Example Usage Code Snippet**
 
 ```java
 import com.salad.cloud.imdssdk.SaladCloudImdsSdk;
+import com.salad.cloud.imdssdk.models.Metadata;
+import com.salad.cloud.imdssdk.models.RecreateParameters;
 
 public class Main {
 
   public static void main(String[] args) {
     SaladCloudImdsSdk saladCloudImdsSdk = new SaladCloudImdsSdk();
 
-    saladCloudImdsSdk.metadata.recreate();
+    RecreateParameters requestParameters = RecreateParameters.builder().metadata(Metadata.TRUE).build();
+
+    saladCloudImdsSdk.metadata.recreate(requestParameters);
   }
 }
 
@@ -142,17 +170,27 @@ Restarts the current container instance on the same SaladCloud node
 - HTTP Method: `POST`
 - Endpoint: `/v1/restart`
 
+**Parameters**
+
+| Name              | Type                                                | Required | Description               |
+| :---------------- | :-------------------------------------------------- | :------- | :------------------------ |
+| requestParameters | [RestartParameters](../models/RestartParameters.md) | ✅       | Request Parameters Object |
+
 **Example Usage Code Snippet**
 
 ```java
 import com.salad.cloud.imdssdk.SaladCloudImdsSdk;
+import com.salad.cloud.imdssdk.models.Metadata;
+import com.salad.cloud.imdssdk.models.RestartParameters;
 
 public class Main {
 
   public static void main(String[] args) {
     SaladCloudImdsSdk saladCloudImdsSdk = new SaladCloudImdsSdk();
 
-    saladCloudImdsSdk.metadata.restart();
+    RestartParameters requestParameters = RestartParameters.builder().metadata(Metadata.TRUE).build();
+
+    saladCloudImdsSdk.metadata.restart(requestParameters);
   }
 }
 
@@ -165,6 +203,12 @@ Gets the health statuses of the current container instance
 - HTTP Method: `GET`
 - Endpoint: `/v1/status`
 
+**Parameters**
+
+| Name              | Type                                                    | Required | Description               |
+| :---------------- | :------------------------------------------------------ | :------- | :------------------------ |
+| requestParameters | [GetStatusParameters](../models/GetStatusParameters.md) | ✅       | Request Parameters Object |
+
 **Return Type**
 
 `Status`
@@ -173,6 +217,8 @@ Gets the health statuses of the current container instance
 
 ```java
 import com.salad.cloud.imdssdk.SaladCloudImdsSdk;
+import com.salad.cloud.imdssdk.models.GetStatusParameters;
+import com.salad.cloud.imdssdk.models.Metadata;
 import com.salad.cloud.imdssdk.models.Status;
 
 public class Main {
@@ -180,7 +226,9 @@ public class Main {
   public static void main(String[] args) {
     SaladCloudImdsSdk saladCloudImdsSdk = new SaladCloudImdsSdk();
 
-    Status response = saladCloudImdsSdk.metadata.getStatus();
+    GetStatusParameters requestParameters = GetStatusParameters.builder().metadata(Metadata.TRUE).build();
+
+    Status response = saladCloudImdsSdk.metadata.getStatus(requestParameters);
 
     System.out.println(response);
   }
@@ -195,6 +243,12 @@ Gets the identity token of the current container instance
 - HTTP Method: `GET`
 - Endpoint: `/v1/token`
 
+**Parameters**
+
+| Name              | Type                                                  | Required | Description               |
+| :---------------- | :---------------------------------------------------- | :------- | :------------------------ |
+| requestParameters | [GetTokenParameters](../models/GetTokenParameters.md) | ✅       | Request Parameters Object |
+
 **Return Type**
 
 `Token`
@@ -203,6 +257,8 @@ Gets the identity token of the current container instance
 
 ```java
 import com.salad.cloud.imdssdk.SaladCloudImdsSdk;
+import com.salad.cloud.imdssdk.models.GetTokenParameters;
+import com.salad.cloud.imdssdk.models.Metadata;
 import com.salad.cloud.imdssdk.models.Token;
 
 public class Main {
@@ -210,7 +266,9 @@ public class Main {
   public static void main(String[] args) {
     SaladCloudImdsSdk saladCloudImdsSdk = new SaladCloudImdsSdk();
 
-    Token response = saladCloudImdsSdk.metadata.getToken();
+    GetTokenParameters requestParameters = GetTokenParameters.builder().metadata(Metadata.TRUE).build();
+
+    Token response = saladCloudImdsSdk.metadata.getToken(requestParameters);
 
     System.out.println(response);
   }

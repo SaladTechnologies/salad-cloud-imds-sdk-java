@@ -1,6 +1,8 @@
 ```java
 import com.salad.cloud.imdssdk.SaladCloudImdsSdk;
 import com.salad.cloud.imdssdk.models.DeletionCost;
+import com.salad.cloud.imdssdk.models.Metadata;
+import com.salad.cloud.imdssdk.models.ReplaceDeletionCostParameters;
 
 public class Main {
 
@@ -9,9 +11,12 @@ public class Main {
 
     DeletionCost deletionCost = DeletionCost.builder().deletionCost(100L).build();
 
-    DeletionCost response = saladCloudImdsSdk.metadata.replaceDeletionCost(deletionCost);
+    ReplaceDeletionCostParameters requestParameters = ReplaceDeletionCostParameters.builder()
+      .metadata(Metadata.TRUE)
+      .deletionCost(deletionCost)
+      .build();
 
-    System.out.println(response);
+    saladCloudImdsSdk.metadata.replaceDeletionCost(requestParameters);
   }
 }
 
